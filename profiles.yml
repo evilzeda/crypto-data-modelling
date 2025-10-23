@@ -7,4 +7,4 @@ crypto_dbt:
       project: basic-radius-451516-m7
       dataset: crypto_dataset                  
       threads: 4
-      keyfile: ./crypto-sa-key.json
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
