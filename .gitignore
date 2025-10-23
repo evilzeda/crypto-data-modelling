@@ -1,5 +1,10 @@
-
+# Ignore JSONs
 target/
 dbt_packages/
 logs/
-*.json
+
+# Ignore keyfile
+crypto-sa-key.json
+
+# Allow JSONs written by GitHub Actions in runtime
+!*.json
