@@ -28,8 +28,9 @@ jobs:
         run: |
           echo "$GCP_SERVICE_ACCOUNT_KEY" > ./crypto-sa-key.json
           export GOOGLE_APPLICATION_CREDENTIALS=./crypto-sa-key.json
-          dbt deps
+          dbt deps --profiles-dir .
           dbt seed --profiles-dir .
           dbt run --profiles-dir .
           dbt test --profiles-dir .
           rm ./crypto-sa-key.json
+
