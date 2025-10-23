@@ -1,0 +1,10 @@
+crypto_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: basic-radius-451516-m7
+      dataset: crypto_dataset                  
+      threads: 4
+      keyfile: ./crypto-sa-key.json

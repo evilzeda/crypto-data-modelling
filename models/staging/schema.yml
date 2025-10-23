@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: crypto_raw
+    database: "{{ var('project') }}"
+    schema: crypto_raw
+    tables:
+      - name: raw_trades
+      - name: raw_p2p_transfers
+      - name: raw_users
+      - name: raw_tokens
+
+models:
+  - name: stg_raw_trades
+    tests:
+      - not_null:
+          column_name: trade_id
+      - unique:
+          column_name: trade_id
+      - accepted_values:
+          column_name: status
+          values: ['FILLED','FAILED','CANCELLED','PENDING']
+  - name: fact_trades
+    tests:
+      - not_null:
+          column_name: trade_id
+      - relationships:
+          to: ref('stg_raw_users')
+          field: user_id
