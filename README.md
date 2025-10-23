@@ -1,15 +1,28 @@
-Welcome to your new dbt project!
+# Crypto Data Modeling
 
-### Using the starter project
+## Project Overview
+This repository contains the data modeling project for CoinX, a cryptocurrency exchange in Southeast Asia.
 
-Try running the following commands:
-- dbt run
-- dbt test
+### Objectives
+- Analyze trading concentration risk
+- Evaluate user retention & cross-product adoption
+- Ensure data quality and compliance
 
+---
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Repository Structure
+- `models/`
+  - `staging/`: Clean raw sources (`stg_raw_users`, `stg_raw_trades`, `stg_raw_tokens`, `stg_raw_p2p`)
+  - `core/`: Trusted integration tables (`core_trades`, `core_p2p`)
+  - `marts/`: Analytics-ready tables for user retention, token concentration, cross-product funnel, and data quality
+- `.github/workflows/`: GitHub Actions workflow for scheduled dbt runs
+- `snapshots/`: Historical snapshots
+- `macros/`: Reusable SQL macros
+- `README.md`: Project documentation
+
+---
+
+## Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/evilzeda/crypto-data-modelling.git
